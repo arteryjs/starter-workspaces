@@ -1,0 +1,26 @@
+
+[contenteditable="true"]:focus {
+  outline:0px solid transparent;
+}
+
+div,span,p,h1,h2,h3,h4,h5 {
+  &[data-property] {
+    &:hover:not(:focus) {
+      //:not(td):not(th) {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05),  rgba(0, 0, 0, 0.05));      
+      opacity: 0.9;
+    }
+    &:focus:not(div):not(td):not(tr) {
+      opacity: 1; 
+      border-bottom: 1px dashed #bbb;          
+    }
+    td, tr{
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1),  rgba(0, 0, 0, 0.1));  
+    }
+    
+  }  
+}
+
+.medium-editor-placeholder {
+  opacity: 0.6;
+}

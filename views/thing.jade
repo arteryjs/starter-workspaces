@@ -1,0 +1,9 @@
+extends layout
+
+block content  
+  .page-header
+    h3
+      span(data-property="title") !{doc.title}  
+  
+  .col-md-12  
+    div(data-property="content" data-type="html") !{doc.content}

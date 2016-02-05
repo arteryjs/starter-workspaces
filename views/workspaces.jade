@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .page-header
+    h3 Choose a workspace
+  .row.item-listing
+    .col-md-3  
+      .panel.panel-default(data-link-destination="/workspaces/new" style="border: 1px dashed #aaa; text-decoration:none; box-shadow: none;")
+        div(style='font-size:9rem; font-weight:100; text-align:center; color: #aaa; padding-bottom: 1.5rem') +
+    each workspace, idx in workspaces
+      unless idx == 'default'
+        .col-md-3
+          .panel.panel-default(data-link-destination="/workspaces/#{idx}")
+            .panel-heading
+              .btn.btn.btn-clear.pull-right(href="#" data-delete-workspace="#{idx}")
+                i.fa.fa-trash            
+              .panel-title= workspace.meta.name
+            .panel-body

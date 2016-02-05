@@ -1,0 +1,33 @@
+
+extends layout
+
+block content
+  br
+  .row
+    .col-md-8.col-md-offset-2
+      .page-header(style="text-align:center")
+
+        h1 
+          | New Workspace
+        p.lead Each workspace has unique content, assets and history
+
+      form.form-horizontal(role='form', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          label(class='col-sm-2 control-label', for='name') Name
+          .col-sm-8
+            input.form-control(type='text', name='name', id='name', autofocus=true)
+        .form-group
+          label(class='col-sm-2 control-label', for='description') Description
+          .col-sm-8
+            textarea.form-control(type='text', name='description', id='description')
+    
+        .form-group
+          .col-sm-offset-2.col-sm-8
+            a.button.btn.btn-default(type='submit' style="margin-right:1rem;" href="/")
+              | Cancel
+            button.btn.btn-primary(type='submit')
+              | Create Workspace
+              | &nbsp;
+              i.fa.fa-chevron-right
+          

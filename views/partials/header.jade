@@ -1,0 +1,49 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')          
+        i.fa.fa-cube
+    
+    .collapse.navbar-collapse(style="text-align:center")
+      ul.nav.navbar-nav
+        li(class=isActive('/') || (workspace ? 'active' : ''))
+          a(href="/") Workspaces
+          
+        
+        
+      ul.nav.navbar-nav.navbar-right  
+        if !workspace && !doc
+          li(class=isActive('page-1'))
+            a(href="/page-1") Page 1
+          li(class=isActive('page-2'))
+            a(href="/page-2") Page 2          
+        
+        if doc                 
+          li
+            a(href="#" onclick="history.back(); return false;") cancel
+          li
+            a.btn.btn-success.navbar-btn(href="#" data-save-doc=req.path) &nbsp; Save &nbsp;           
+        else
+          li
+            a.btn.btn-primary.navbar-btn(href='#cta') Some Action
+
+if workspace
+  .subnav
+    .container
+      if docType 
+        if docType == 'things'
+          i.fa.fa-lightbulb-o
+    
+      ol.breadcrumb
+        li 
+          a(href=`/workspaces/${workspace.basename}`) #{workspace.meta.name}
+        if docType 
+          li 
+            a(href=`/${workspace.basename}/list/${docType}`) #{docType}            
+        if doc
+          li !{doc.title}

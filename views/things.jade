@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .page-header
+    h3 Things
+  
+  .item-listing      
+    .col-md-3.col-sm-4
+      .panel.panel-default.new(data-link-destination=`/${workspace.basename}/things/new` style="opacity:0.8")
+        div +
+        
+  
+    each doc, idx in workspace.things
+      unless idx == 'default'
+        .col-md-3.col-sm-4
+          .panel.panel-default(data-link-destination=`/${workspace.basename}/things/${idx}`)
+            .panel-heading
+              .btn.btn-clear.pull-right(href="#" data-delete-doc=`/${workspace.basename}/things/${idx}`)
+                i.fa.fa-trash
+              .panel-title !{doc.title}
+            .panel-body

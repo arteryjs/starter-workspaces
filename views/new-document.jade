@@ -1,0 +1,35 @@
+
+extends layout
+
+block content
+  .row
+    .col-md-8.col-md-offset-2
+      .page-header(style="text-align:center")
+
+        h1(style="text-transform:capitalize") 
+          | New #{docTypeSingular}
+        p.lead 
+          
+      form.form-horizontal(role='form', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group
+          label(class='col-sm-2 control-label', for='title') Name
+          .col-sm-8
+            input.form-control(type='text', name='title', id='title', autofocus=true)
+        .form-group
+          label(class='col-sm-2 control-label', for='name') Based On
+          .col-sm-8
+            select.form-control(type='text', name='cloneDoc', id='cloneDoc')
+              option(value='default') Default
+              each doc, idx in docs
+                unless idx == 'default'
+                  option(value=idx)= doc.title
+    
+        .form-group
+          .col-sm-offset-2.col-sm-8
+            a.button.btn.btn-default(type='submit' style="margin-right:1rem;" href=(workspace === null ? `/list/${docType}` : `/${workspace.basename}/list/${docType}`))
+              | Cancel
+            button.btn.btn-primary(type='submit' style="text-transform:capitalize")
+              | Create #{docTypeSingular}
+              | &nbsp;
+              i.fa.fa-chevron-right  

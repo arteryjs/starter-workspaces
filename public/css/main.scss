@@ -1,0 +1,73 @@
+//@import "vendors/bootstrap/bootstrap";
+@import "http://bootswatch.com/yeti/bootstrap.min.css";
+//@import "vendors/bootswatch/sandstone/bootstrap.min";
+@import "vendors/font-awesome/font-awesome";
+@import "editor";
+
+body {
+  margin-top: 4.5rem;
+}
+
+[data-link-destination] {
+  cursor: pointer;
+}
+.item-listing {
+  .panel {
+    min-height: 15rem;
+    &.new {
+      border: 0.01rem dashed #aaa; 
+      text-decoration:none; 
+      box-shadow: none;
+      > div {
+        font-size:9rem; 
+        font-weight:100; 
+        text-align:center; 
+        color: #aaa; 
+        padding-bottom: 1.5rem
+      }
+    }
+  }  
+}
+
+.panel-heading {
+  .btn-clear {
+    margin:-0.8rem -0.8rem 0 0;
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.navbar .btn.navbar-btn {
+  margin-top: 0.66rem;
+  padding: 0.4rem 1.1rem;
+  font-size: 1.33rem;
+}
+.panel, .btn {
+  border-radius: 0.3rem;
+}
+
+.subnav {
+  margin-bottom: 0;
+  box-shadow: 1px 1px 1px #ddd;
+  
+  + .container {
+    margin-top: -21px;
+  }
+  background: #f3f3f3;
+  .breadcrumb {
+    margin-left: -2.5rem;
+    border-radius: 0;
+    font-size: 1.33rem;
+    border: none;
+    margin-bottom: 0;
+
+  }
+  i.fa {
+    float:right;
+    font-size: 2.5rem;
+    float: right;
+    opacity: 0.15;
+    margin-top: 0.6rem;
+  }
+}

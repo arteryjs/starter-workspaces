@@ -1,0 +1,13 @@
+extends layout
+block content
+  .page-header
+    h3= workspace.meta.name
+  
+  .col-md-3
+    .panel.panel-default(data-link-destination=`/${workspace.basename}/list/things`)
+      .panel-heading
+        .panel-title
+          i.pull-right.fa.fa-lightbulb-o
+          | Things
+      .panel-body
+        | Text saying what "things" are.
