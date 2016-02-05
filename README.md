@@ -13,11 +13,13 @@ Under the hood, Artery is just a simple Node/Express.js webserver.  There are a 
 
 > git clone https://github.com/arteryjs/starter-workspaces.git
 
-> cd starter-workspaces && mkdir -p data/workspaces/things && echo '{"name": "default"}' > data/workspaces/things/meta.json && cd data/workspaces/things && git init . && git add . && git commit -m 'initial commit'
+> cd starter-workspaces && mkdir -p data/workspaces/default/things && echo '{"name": "default"}' > data/workspaces/default/things/meta.json && cd data/workspaces/default/things && git init . && git add . && git commit -m 'initial commit' && cd ../../../.. 
 
-> Copy env.customize-me to .env
+> Duplicate the env.customize-me file as .env (this copy will be excluded from git commits)
 
 > Then, in the new .env file, add a random SESSION_SECRET and replace your name in LOCAL_USER_NAME & email in LOCAL_USER_EMAIL
+
+> rm -rf .git && git init . && git add . && git commit -m 'initial commit'
 
 > npm install
 
